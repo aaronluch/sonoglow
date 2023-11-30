@@ -12,8 +12,6 @@ app.secret_key = 'your_secret_key'  # Set a secret key for session
 processes = {
     'currentlyPlaying': None,
     'testImage': None,
-    'previous': None,
-    'skip': None
 }
 
 # Read credentials from the file
