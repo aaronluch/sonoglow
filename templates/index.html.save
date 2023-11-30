@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+<title>SonoGlow Web UI</title>
+    <link rel="stylesheet" href="../static/custom.css">
+    <!--<script> // can update song every 5 seconds; causes flickering *checks if user switched*
+        function updateSong() {
+            fetch('/updateSong', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    // Update your page with the new song info
+                    document.getElementById('songInfo').innerHTML = 'Now Playing: ' + data.track_name + ' by ' + data.artists;
+                });
+        }
+
+        // Update song info every 5 seconds
+        setInterval(updateSong, 5000);
+    </script>-->
+</head>
+<body>
+    <div class="container">
+        <img id="songImage" src="../images/currentsong.jpg" alt="Current Song Image">
+        <h1>Update Song Information</h1>
+        <form action="/updateSong" method="post">
+            <button type="submit">LAUNCH</button>
+        </form>
+        {% if song_info %}
+            <p>Now Playing: {{ song_info['track_name'] }} by {{ song_info['artists'] }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

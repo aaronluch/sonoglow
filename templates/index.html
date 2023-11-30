@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Aaron Luciano">
+    <meta name="description" content="View your song on the SonoGlow RGB Matrix Display">
+    <link rel="icon" href="../static/sonoglowIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../static/custom.css">
+    <script src="../static/bubbles.js"></script>
+    <title>SonoGlow Web UI</title>
+</head>
+<body>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <script>
+        let continuousUpdateEnabled = false;
+        let updateInterval;
+    
+        function toggleContinuousUpdate() {
+            continuousUpdateEnabled = !continuousUpdateEnabled;
+            document.getElementById('continuousButton').innerText = `CONTINUOUS: ${continuousUpdateEnabled ? 'ENABLED' : 'DISABLED'}`;
+    
+            if (continuousUpdateEnabled) {
+                updateInterval = setInterval(callUpdateSong, 5000);
+            } else {
+                clearInterval(updateInterval);
+            }
+        }
+    
+        function callUpdateSong() {
+            fetch('/updateSong', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Update song successful:', data);
+            })
+            .catch(error => {
+                console.error('Error during update song:', error);
+            });
+        }
+    </script>
+        
+    <div class="container">
+        <img id="songImage" src="../static/websitesongdisplay.jpg" alt="Current Song Image">
+        <h1>SonoGlow</h1>
+        <form action="/updateSong" method="post">
+            <button type="submit">UPDATE</button>
+        </form>
+        {% if song_info %}
+            <p>Now Playing: {{ song_info['track_name'] }} by {{ song_info['artists'] }}</p>
+        {% endif %}
+        <button id="continuousButton" onclick="toggleContinuousUpdate()">CONTINUOUS: DISABLED</button>
+    </div>
+    
+</body>
+</html>

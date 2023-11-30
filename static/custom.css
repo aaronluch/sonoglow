@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, rgb(97, 73, 153), #53a36e, #79c2df, rgb(162, 170, 106));
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.bubbles {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -150px; /* Start off screen */
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: rise 15s infinite ease-in;
+}
+
+@media screen and (min-width: 768px) {
+    .bubbles {
+        display: block;
+    }
+}
+
+@keyframes rise {
+    0% {
+        bottom: -150px;
+        transform: scale(0.1);
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        bottom: 100%;
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+
+.container {
+    width: 75%;
+    max-width: 1200px; /* Optional: maximum width */
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #444444;
+}
+
+form {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Larger font for button */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#songImage {
+    width: 25vh;
+    height: 25vh;
+}
