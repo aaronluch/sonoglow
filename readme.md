@@ -8,7 +8,7 @@
 
 ### Video Demonstration
 
-https://github.com/aaronluch/sonoglow-project/assets/119374408/7baaef4b-d522-4c16-802c-2b35395b3b8d
+https://github.com/aaronluch/sonoglow/assets/119374408/6e462525-6cd6-429f-9df5-53cef4437867
 
 ## Project Overview
 
