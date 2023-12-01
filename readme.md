@@ -30,6 +30,7 @@ As an individual effort, the project provided a platform to apply concepts from 
 ## References
 
 - [Spotify API Documentation](https://developer.spotify.com/documentation/web-api/)
-- [SpotiyPi Documentation](https://spotipy.readthedocs.io/en/2.22.1/)
+- [Spotipy Documentation](https://spotipy.readthedocs.io/en/2.22.1/)
 - [Adafruit Matrix Documentation](https://cdn-learn.adafruit.com/downloads/pdf/raspberry-pi-led-matrix-display.pdf)
+- [PIL Library Documentation](https://pillow.readthedocs.io/en/stable/)
 - [Raspberry Pi Official Website](https://www.raspberrypi.org/)
