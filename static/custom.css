@@ -108,3 +108,8 @@ button:hover {
     width: 25vh;
     height: 25vh;
 }
+
+#songInfo {
+    font-size: 14px;
+    font-family: Typewriter, serif;
+}
