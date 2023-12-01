@@ -56,7 +56,6 @@ def currentlyPlaying():
         run_script('testImage')
         song_info = getCurrentSong()
         session['song_info'] = song_info  # Store song info in session
-        return jsonify(song_info)  # Return song info as JSON
     except subprocess.CalledProcessError as e:
         message = f"An error occurred in currentlyPlaying: {e}"
     return render_template('index.html', message=message, song_info=song_info)
