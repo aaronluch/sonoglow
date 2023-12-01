@@ -28,9 +28,11 @@
         <h1>SonoGlow</h1>
         <form id="updateForm" action="/updateSong" method="post">
             <button type="submit">UPDATE</button>
-        </form>        
+        </form>   
         <button id="continuousButton" onclick="toggleContinuousUpdate()">CONTINUOUS: DISABLED</button>
-        <p id="nowPlaying">Now Playing: </p>
+        {% if song_info %}
+            <p id="songInfo"">Now Playing: {{ song_info['track_name'] }} by {{ song_info['artists'] }}</p>
+        {% endif %}
     </div>
     
 </body>
